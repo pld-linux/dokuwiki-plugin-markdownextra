@@ -1,0 +1,11 @@
+--- markdownextra/syntax.php~	2012-10-30 18:01:59.000000000 +0200
++++ markdownextra/syntax.php	2012-10-30 19:26:10.953329563 +0200
+@@ -11,7 +11,7 @@
+ if (!defined('DOKU_INC')) die();
+ if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN', DOKU_INC . 'lib/plugins/');
+ require_once (DOKU_PLUGIN . 'syntax.php');
+-require_once (DOKU_PLUGIN . 'markdownextra/markdown.php');
++require_once 'markdown.php';
+ 
+ class syntax_plugin_markdownextra extends DokuWiki_Syntax_Plugin {
+ 

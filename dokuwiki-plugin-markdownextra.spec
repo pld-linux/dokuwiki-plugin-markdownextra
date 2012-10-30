@@ -4,11 +4,12 @@
 Summary:	DokuWiki Markdown Extra plugin
 Name:		dokuwiki-plugin-%{plugin}
 Version:	20101106
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://madpropellerhead.com/projects/markdownextra.tgz
 # Source0-md5:	3e703cbfe84108e252c354009a304cd2
+Patch0:		sys-path.patch
 URL:		http://www.dokuwiki.org/plugin:markdownextra
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
@@ -24,6 +25,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		plugindir	%{dokudir}/lib/plugins/%{plugin}
 %define		find_lang 	%{_usrlibrpm}/dokuwiki-find-lang.sh %{buildroot}
 
+%define		_noautopear	pear
+%define		_noautoreq	%{?_noautophp} %{?_noautopear}
+
 %description
 Parses PHP Markdown Extra blocks.
 
@@ -31,6 +35,7 @@ Parses PHP Markdown Extra blocks.
 %setup -qc
 mv %{plugin}/* .
 %undos -f txt,php
+%patch0 -p1
 
 version=$(awk '/^date/{print $2}' plugin.info.txt)
 if [ "$(echo "$version" | tr -d -)" != %{version} ]; then
