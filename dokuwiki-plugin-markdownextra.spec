@@ -14,6 +14,7 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
 Requires:	dokuwiki >= 20091225
 Requires:	php-common >= 4:%{php_min_version}
+Requires:	php-markdown-extra >= 1.2.4
 Requires:	php-pcre
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -22,9 +23,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		dokudir		/usr/share/dokuwiki
 %define		plugindir	%{dokudir}/lib/plugins/%{plugin}
 %define		find_lang 	%{_usrlibrpm}/dokuwiki-find-lang.sh %{buildroot}
-
-%define		_noautopear	pear
-%define		_noautoreq	%{?_noautophp} %{?_noautopear}
 
 %description
 Parses PHP Markdown Extra blocks.
@@ -45,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{plugindir}
 cp -a . $RPM_BUILD_ROOT%{plugindir}
 %{__rm} $RPM_BUILD_ROOT%{plugindir}/License.text
+
+# php-markdown-extra
+%{__rm} $RPM_BUILD_ROOT%{plugindir}/markdown.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
