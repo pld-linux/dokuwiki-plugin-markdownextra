@@ -13,9 +13,9 @@ URL:		http://www.dokuwiki.org/plugin:markdownextra
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
 Requires:	dokuwiki >= 20091225
-Requires:	php-common >= 4:%{php_min_version}
+Requires:	php(core) >= %{php_min_version}
+Requires:	php(pcre)
 Requires:	php-markdown-extra >= 1.2.4
-Requires:	php-pcre
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
