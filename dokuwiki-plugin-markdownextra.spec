@@ -34,7 +34,7 @@ Parses PHP Markdown Extra blocks.
 %setup -qc
 mv %{plugin}/* .
 %undos -f txt,php
-%patch0 -p1
+%patch -P0 -p1
 
 version=$(awk '/^date/{print $2}' plugin.info.txt)
 if [ "$(echo "$version" | tr -d -)" != %{version} ]; then
