@@ -3,7 +3,7 @@
 Summary:	DokuWiki Markdown Extra plugin
 Name:		dokuwiki-plugin-%{plugin}
 Version:	20101106
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://madpropellerhead.com/projects/markdownextra.tgz
